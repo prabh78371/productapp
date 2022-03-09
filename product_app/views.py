@@ -24,6 +24,7 @@ def view(request):
 
 def edit(request,id):
     productapp = Products.objects.get(id=id)
+    
     return render(request,"edit.html",{"prod": productapp})
 
 def update(request,id):
@@ -32,12 +33,12 @@ def update(request,id):
     if form.is_valid():
         form.save()
         return redirect("/view")
-    return render(request,"edit.html",{"prod": productapp})
+    return render(request,"edit.html",{"prod": form})
 
 def delete(request,id):
     productapp = Products.objects.get(id=id)
     productapp.delete()
     return redirect("/view")
-
+    
 
 

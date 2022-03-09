@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Eproducts</title>
-    {% comment %} {% load staticfiles %} {% endcomment %} {% comment %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    {% endcomment %}
   </head>
   <body>
     <table class="table table-striped table-bordered table-sm">
@@ -14,6 +13,7 @@
           <th>prod_name</th>
           <th>description</th>
           <th>price</th>
+          <th>Image</th>
 
           <th>Actions</th>
         </tr>
@@ -24,6 +24,8 @@
           <td>{{ p.prod_name }}</td>
           <td>{{ p.description }}</td>
           <td>{{ p.price }}</td>
+
+          <td><img src="media/{{ p.Image}}" /></td>
 
           <td>
             <a href="/edit/{{ p.id }}">Edit</a>

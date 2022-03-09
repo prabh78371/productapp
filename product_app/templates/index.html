@@ -4,12 +4,18 @@
   <head>
     <meta charset="utf-8" />
     <title>index</title>
-    {% comment %} {% load staticfiles %} {% endcomment %}
+    {% load static %} 
   </head>
   <body>
-    <form method="POST" class="post-form" action="/create/">
-      {% csrf_token %}
+    
       <div class="container">
+    <form
+      method="POST"
+      enctype="multipart/form-data"
+      class="post-form"
+      action="/create/"
+    >
+      {% csrf_token %}
         <br />
         <div class="form-group row">
           <label class="col-sm-1 col-form-label"></label>
@@ -24,6 +30,10 @@
         <div class="form-group row">
           <label class="col-sm-1 col-form-label">description :</label>
           <div class="col-sm-4">{{form.description}}</div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-1 col-form-label">Image :</label>
+          <div class="col-sm-4">{{form.Image}}</div>
         </div>
         <div class="form-group row">
           <label class="col-sm-1 col-form-label">price :</label>
