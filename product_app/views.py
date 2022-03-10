@@ -6,7 +6,7 @@ from product_app.models import Products
 # Create your views here.
 def create(request):
     if request.method == "POST":
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST,request.FILES)
         if form.is_valid():
             try:
                 form.save()
